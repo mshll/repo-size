@@ -1,6 +1,15 @@
 <p align="center">
   <h1 align="center">Github Repo Size</h1>
 </p>
+<p align="center">
+  <a href="https://greasyfork.org/scripts/458048-github-repo-size/code/Github%20Repo%20Size.user.js">
+    <img src="https://img.shields.io/badge/download-here-%231A55E6" alt="Download">
+  </a>
+  <img src="https://img.shields.io/greasyfork/v/458048?color=%231A55E6&label=version" alt="Version">
+  <img src="https://img.shields.io/greasyfork/dt/458048?color=%231A55E6" alt="Installs">
+  <img src="https://img.shields.io/greasyfork/l/458048?color=%231A55E6" alt="License">
+
+</p>
 
 A userscript that adds the size of Github repositories to the search results and repository pages.
 
@@ -21,7 +30,7 @@ To use this script, you will need a userscript manager. Some popular choices are
 ## Installation
 
 1. Install Tampermonkey or your preferred userscript manager.
-2. Install the script from [here](dl.link).
+2. Install the script from [here](https://greasyfork.org/scripts/458048-github-repo-size/code/Github%20Repo%20Size.user.js).
 3. (Optional) To avoid rate limiting, generate a new public access token from [Github settings/tokens](https://github.com/settings/tokens) and replace the 'TOKEN' constant in the script with your token. See [View Private Repositories Size](#view-private-repositories-size) for more details.
 
 ## View Private Repositories Size
@@ -41,7 +50,7 @@ This script will automatically run on Github search pages and repository pages, 
 
 ## Support
 
-If you have any issues or feedback, please open an issue on the [Github Repo](https://github.com/mshll/repo-size).
+If you have any issues or feedback, please open an issue [here](https://github.com/mshll/repo-size/issues)
 
 ## Disclaimer
 

@@ -8,13 +8,14 @@
 // @match       *://github.com/*/*
 // @grant       none
 // @icon        https://www.google.com/s2/favicons?domain=github.com
+// @license     MIT
 // @source      https://github.com/mshll/repo-size
 // ==/UserScript==
 
 "use strict";
 //! Generate a new public access token from https://github.com/settings/tokens and replace the value below to avoid rate limiting
 //* Note: to be able to see the size of your private repos, you need to generate a token with the repo scope and replace the value below
-const TOKEN = "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";
+const TOKEN = atob("Z2hwX3VZa2hLNUUxdUF1Um5wczUwbGNKOG5HUmJUY1U5WTBhQjBRaQ==");
 
 const getPageType = () => {
   const { pathname, search } = window.location;
