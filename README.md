@@ -2,13 +2,12 @@
   <h1 align="center">Github Repo Size</h1>
 </p>
 <p align="center">
-  <a href="https://greasyfork.org/scripts/458048-github-repo-size/code/Github%20Repo%20Size.user.js">
+  <a href="https://greasyfork.org/en/scripts/458048-github-repo-size" style="text-decoration: none">
     <img src="https://img.shields.io/badge/download-here-%231A55E6" alt="Download">
+    <img src="https://img.shields.io/greasyfork/v/458048?color=%231A55E6&label=version" alt="Version">
+    <img src="https://img.shields.io/greasyfork/dt/458048?color=%231A55E6" alt="Installs">
+    <img src="https://img.shields.io/greasyfork/l/458048?color=%231A55E6" alt="License">
   </a>
-  <img src="https://img.shields.io/greasyfork/v/458048?color=%231A55E6&label=version" alt="Version">
-  <img src="https://img.shields.io/greasyfork/dt/458048?color=%231A55E6" alt="Installs">
-  <img src="https://img.shields.io/greasyfork/l/458048?color=%231A55E6" alt="License">
-
 </p>
 
 A userscript that adds the size of Github repositories to the search results and repository pages.
@@ -31,7 +30,7 @@ To use this script, you will need a userscript manager. Some popular choices are
 
 1. Install Tampermonkey or your preferred userscript manager.
 2. Install the script from [here](https://greasyfork.org/scripts/458048-github-repo-size/code/Github%20Repo%20Size.user.js).
-3. (Optional) To avoid rate limiting, generate a new public access token from [Github settings/tokens](https://github.com/settings/tokens) and replace the 'TOKEN' constant in the script with your token. See [View Private Repositories Size](#view-private-repositories-size) for more details.
+3. (Optional) If you want to view the sizes of private repositories, see the instructions below.
 
 ## View Private Repositories Size
 
@@ -39,10 +38,10 @@ By default, this script will only display the sizes of public repositories.
 To display the sizes of private repositories, you will need to generate a new personal access token with the `repo` scope.
 This token will be used to authenticate with the Github API.
 
-1. Generate a new personal access token from [Github settings/tokens](https://github.com/settings/tokens) and click on the `Generate new token` button.
+1. Generate a new token [here](https://github.com/settings/tokens/new?description=repo-size%20userscript&scopes=repo).
 2. Give the token a name and check the `repo` scope.
 3. Click on the `Generate token` button and copy the token.
-4. Replace the value of the `TOKEN` constant in the script with your token.
+4. Replace the value of the `TOKEN` constant at the top of the script with the token you just generated.
 
 ## Usage
 
@@ -54,4 +53,4 @@ If you have any issues or feedback, please open an issue [here](https://github.c
 
 ## Disclaimer
 
-This This script is not affiliated with Github, Inc. Use it at your own risk.
+This script is not affiliated with Github, Inc. Use it at your own risk.

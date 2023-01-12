@@ -2,7 +2,7 @@
 // @name        Github Repo Size
 // @namespace   mshll
 // @description Adds the repo size next to the repo name on github search and repo pages
-// @version     0.1
+// @version     0.1.1
 // @author      mshll
 // @match       *://github.com/search*
 // @match       *://github.com/*/*
@@ -13,9 +13,9 @@
 // ==/UserScript==
 
 "use strict";
-//! Generate a new public access token from https://github.com/settings/tokens and replace the value below to avoid rate limiting
-//* Note: to be able to see the size of your private repos, you need to generate a token with the repo scope and replace the value below
-const TOKEN = atob("Z2hwX3VZa2hLNUUxdUF1Um5wczUwbGNKOG5HUmJUY1U5WTBhQjBRaQ==");
+//! Generate a new public access token from https://github.com/settings/tokens and insert it here
+//* Note: to be able to see the size of your private repos, you need to select the `repo` scope when generating the token
+const TOKEN = "";
 
 const getPageType = () => {
   const { pathname, search } = window.location;
@@ -50,11 +50,12 @@ const addSizeToRepos = () => {
   // Get all the repo links
   document.querySelectorAll(repoSelector).forEach(async (elem) => {
     // Get json data from github api to extract the size
+    const tkn = TOKEN ? TOKEN : atob("Z2hwX3VZa2hLNUUxdUF1Um5wczUwbGNKOG5HUmJUY1U5WTBhQjBRaQ==");
     const href = elem.getAttribute("href");
     const jsn = await (
       await fetch(`https://api.github.com/repos${href}`, {
         headers: {
-          authorization: `token ${TOKEN}`,
+          authorization: `token ${tkn}`,
         },
       })
     ).json();
@@ -74,6 +75,7 @@ const addSizeToRepos = () => {
       sizeContainer = document.createElement("span");
       sizeContainer.id = "mshll-repo-size";
       sizeContainer.classList.add("Label", "Label--info", "v-align-middle", "ml-1");
+      sizeContainer.setAttribute("title", "Repository size");
       sizeContainer.innerText = "-";
 
       // Create the size icon
