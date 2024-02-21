@@ -16,16 +16,25 @@
 //! Generate a new public access token from https://github.com/settings/tokens and insert it here
 //* Note: to be able to see the size of your private repos, you need to select the `repo` scope when generating the token
 const TOKEN = "";
-
+console.log("Starting script");
 const getPageType = () => {
+  // Extract the pathname and search parts from the window location
   const { pathname, search } = window.location;
+  // Create a new URLSearchParams object from the search part of the URL
   const params = new URLSearchParams(search);
+  // Split the pathname by '/' and extract the second and third elements into variables username and repo
   const [, username, repo] = pathname.split("/");
+  // Retrieve the value of the query parameter 'q' and convert it to lowercase if it exists
   const q = params.get("q")?.toLocaleLowerCase();
+  // Retrieve the value of the query parameter 'type' and convert it to lowercase if it exists
   const type = params.get("type")?.toLocaleLowerCase();
+  // Check if both username and repo exist. If so, return 'repo'
   if (username && repo) return "repo";
+  // If q exists and type is 'code', return 'code_search'
   if (q && type === "code") return "code_search";
+  // If only q exists, return 'search'
   if (q) return "search";
+  // If none of the conditions are met, return undefined
 };
 
 const addSizeToRepos = () => {
@@ -50,16 +59,16 @@ const addSizeToRepos = () => {
   // Get all the repo links
   document.querySelectorAll(repoSelector).forEach(async (elem) => {
     // Get json data from github api to extract the size
-    const tkn = TOKEN ? TOKEN : atob("Z2hwX3VZa2hLNUUxdUF1Um5wczUwbGNKOG5HUmJUY1U5WTBhQjBRaQ==");
     const href = elem.getAttribute("href");
+    console.log("HREF of the url " + href);
+    console.log(tkn && { authorization: `token ${tkn}` });
     const jsn = await (
       await fetch(`https://api.github.com/repos${href}`, {
         headers: {
-          authorization: `token ${tkn}`,
+          ...(TOKEN && { authorization: `token ${TOKEN}` })
         },
       })
     ).json();
-
     // If JSON failed to load, skip
     if (jsn.message) return;
 
@@ -120,3 +129,5 @@ new MutationObserver(() => {
     addSizeToRepos();
   }
 }).observe(document, { subtree: true, childList: true });
+console.log("Closing script");
+
