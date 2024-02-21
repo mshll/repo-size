@@ -37,7 +37,7 @@ const addSizeToRepos = () => {
       repoSelector = "#repository-container-header strong a";
       break;
     case "search":
-      repoSelector = "li.repo-list-item .f4 a";
+      repoSelector = "a.Link__StyledLink-sc-14289xe-0";
       break;
     case "code_search":
       repoSelector = ".code-list-item text-small Link--secondary";
