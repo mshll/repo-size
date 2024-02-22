@@ -49,7 +49,7 @@ This script will automatically run on Github search pages and repository pages, 
 
 ## Important Notice
 
-**Attention:** Unauthenticated users may encounter limited response rates from the API. To ensure you receive adequate responses and to access higher rate limits, it's highly recommended to authenticate your requests. Refer to the documentation for instructions on how to authenticate your requests.
+🚀 **Heads up!** The GitHub API has a limit of 60 public requests per hour. To avoid hitting this limit and ensure smooth operation, it's recommended to obtain an access token from [GitHub Settings](https://github.com/settings/tokens) and add it in the script.
 
 ## Support
 
