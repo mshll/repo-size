@@ -47,6 +47,10 @@ This token will be used to authenticate with the Github API.
 
 This script will automatically run on Github search pages and repository pages, and will display the repository size next to the repository name.
 
+## Important Notice
+
+🚀 **Heads up!** The GitHub API has a limit of 60 public requests per hour. To avoid hitting this limit and ensure smooth operation, it's recommended to obtain an access token from [GitHub Settings](https://github.com/settings/tokens) and add it in the script.
+
 ## Support
 
 If you have any issues or feedback, please open an issue [here](https://github.com/mshll/repo-size/issues)

@@ -16,7 +16,6 @@
 //! Generate a new public access token from https://github.com/settings/tokens and insert it here
 //* Note: to be able to see the size of your private repos, you need to select the `repo` scope when generating the token
 const TOKEN = "";
-
 const getPageType = () => {
   const { pathname, search } = window.location;
   const params = new URLSearchParams(search);
@@ -38,7 +37,7 @@ const addSizeToRepos = () => {
       repoSelector = "#repository-container-header strong a";
       break;
     case "search":
-      repoSelector = "li.repo-list-item .f4 a";
+      repoSelector = "a.Link__StyledLink-sc-14289xe-0";
       break;
     case "code_search":
       repoSelector = ".code-list-item text-small Link--secondary";
@@ -50,16 +49,14 @@ const addSizeToRepos = () => {
   // Get all the repo links
   document.querySelectorAll(repoSelector).forEach(async (elem) => {
     // Get json data from github api to extract the size
-    const tkn = TOKEN ? TOKEN : atob("Z2hwX3VZa2hLNUUxdUF1Um5wczUwbGNKOG5HUmJUY1U5WTBhQjBRaQ==");
     const href = elem.getAttribute("href");
     const jsn = await (
       await fetch(`https://api.github.com/repos${href}`, {
         headers: {
-          authorization: `token ${tkn}`,
+          ...(TOKEN && { authorization: `token ${TOKEN}` })
         },
       })
     ).json();
-
     // If JSON failed to load, skip
     if (jsn.message) return;
 
@@ -120,3 +117,4 @@ new MutationObserver(() => {
     addSizeToRepos();
   }
 }).observe(document, { subtree: true, childList: true });
+
